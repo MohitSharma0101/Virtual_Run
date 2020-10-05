@@ -22,6 +22,7 @@ class RunFragment: Fragment(R.layout.fragment_run),EasyPermissions.PermissionCal
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requestPermission()
         fab.setOnClickListener {
             findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
         }
@@ -54,7 +55,7 @@ class RunFragment: Fragment(R.layout.fragment_run),EasyPermissions.PermissionCal
 
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
         if(EasyPermissions.somePermissionPermanentlyDenied(this,perms)){
-            AppSettingsDialog.Builder(this).build().show()
+          //  AppSettingsDialog.Builder(this).build().show()
         }else{
             requestPermission()
         }
